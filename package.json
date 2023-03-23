@@ -1,0 +1,36 @@
+{
+  "name": "node-cluster-promise",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "license": "MIT",
+  "homepage": "https://github.com/patches11/node-cluster-promise",
+  "scripts": {
+    "test": "yarn jest",
+    "build": "tsc",
+    "start": "ts-node src/index.ts"
+  },
+  "files": [
+    "dist/**/*"
+  ],
+  "keywords": [
+    "promise",
+    "async"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/patches11/node-cluster-promise"
+  },
+  "author": "Patrick Brown <patrick@patrickbrown.us>",
+  "bugs": {
+    "url": "https://github.com/patches11/node-cluster-promise/issues"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.4.0",
+    "jest": "^29.5.0",
+    "ts-jest": "^29.0.5",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.5"
+  },
+  "dependencies": {}
+}
