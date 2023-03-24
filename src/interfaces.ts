@@ -12,30 +12,31 @@ export interface ClusterPromiseOptions {
 }
 
 export interface ClusterPromiseWithRun {
-  run: (funcName: string, args: any) => Promise<any>;
+  run: (funcName: string, ...args: any) => Promise<any>;
   shutdown: () => void;
 }
 
-export type JsonPrimitive = string | number | boolean | null;
+export type Functions = {
+  [functionName: string]: (...args: any) => Promise<any>;
+};
 
-export type JsonObject = { [key: string]: JsonValue };
+export type Online = { kind: "online" };
 
-export type JsonArray = JsonValue[];
+export type WorkerWork = {
+  kind: "worker-work";
+  func: string;
+  args: any[];
+  id: string;
+};
 
-export type JsonValue = JsonPrimitive | JsonArray | JsonObject;
+export type WorkerMessage = Online | WorkerWork;
 
-export type Function<TInput = unknown, TOutput = unknown> = (
-  opts: TInput
-) => Promise<TOutput>;
+export type Ask = { kind: "ask" };
 
-export type FunctionRecord<TInput = unknown, TOutput = unknown> = Record<
-  string,
-  Function<TInput, TOutput>
->;
+export type Result = {
+  kind: "result";
+  id: string;
+  result: any;
+};
 
-export type GetFirstArgumentOfAnyFunction<T> = T extends (
-  first: infer FirstArgument,
-  ...args: any[]
-) => any
-  ? FirstArgument
-  : never;
+export type PrimaryMessage = Ask | Result;

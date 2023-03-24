@@ -8,14 +8,17 @@
   "scripts": {
     "test": "yarn jest",
     "build": "tsc",
-    "start": "ts-node src/index.ts"
+    "example": "ts-node src/example.ts",
+    "readme_example": "ts-node src/readme-example.ts"
   },
   "files": [
     "dist/**/*"
   ],
   "keywords": [
     "promise",
-    "async"
+    "async",
+    "multiprocessing",
+    "node-cluster"
   ],
   "repository": {
     "type": "git",
